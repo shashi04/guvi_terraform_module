@@ -1,0 +1,9 @@
+resource "aws_instance" "this" {
+  ami           = "ami-0f5ee92e2d63afc18"
+  instance_type = var.instance_type
+  subnet_id     = var.subnet_id
+
+  tags = {
+    Name = "${var.env}-ec2"
+  }
+}

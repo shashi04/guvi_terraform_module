@@ -1,0 +1,20 @@
+Workspaces (Environment Management)
+====================================
+
+terraform init
+
+terraform workspace new dev
+terraform workspace new qa
+terraform workspace new prod
+
+terraform workspace select dev
+terraform apply
+
+
+Conditional Expression
+=======================
+
+instance_type = local.env == "prod" ? "t3.large" : var.instance_type
+
+Terraform syntax: 
+    condition ? value_if_true : value_if_false
