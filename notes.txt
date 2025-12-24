@@ -7,6 +7,11 @@ terraform workspace new dev
 terraform workspace new qa
 terraform workspace new prod
 
+
+# List the available Workspace
+
+terraform workspace list 
+
 terraform workspace select dev
 terraform apply
 
@@ -18,3 +23,33 @@ instance_type = local.env == "prod" ? "t3.large" : var.instance_type
 
 Terraform syntax: 
     condition ? value_if_true : value_if_false
+
+
+
+Terraform Flow
+
+Terraform State
+
+Terraform HCL Structure
+
+Variables
+
+Modules
+
+Provisioner
+
+Workspace
+
+
+VPC
+
+ec2
+
+Security Group 
+
+S3
+
+Load Balancer
+
+Auto Scaling
+
