@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  env = terraform.workspace
+  env = try(terraform.workspace, "dev")
 }
 
 # DynmoDB Table for State Locking
@@ -31,5 +31,5 @@ module "ec2" {
   env           = local.env
   subnet_id     = module.vpc.public_subnet_id
   ami_id        = var.ami_id
-  instance_type = local.env == "prod" ? "t3.large" : var.instance_type
+  instance_type = local.env == "prod" ? "t3.large" : var.instance_type # Conditional instance type based on environment
 }
