@@ -1,1 +1,6 @@
+variable "name" {}
+variable "vpc_cidr" {}
+variable "public_subnets" {}
+variable "azs" {}
+variable "private_subnets" {}
 variable "env" {}
