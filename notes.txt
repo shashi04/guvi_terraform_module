@@ -53,3 +53,20 @@ Load Balancer
 
 Auto Scaling
 
+
+===========================================================================================
+
+Count:
+
+Used when creating multiple identical resources
+
+
+for_each
+
+
+VPC
+Security_Group
+EC2
+Load_Balancer
+Autoscaling
+S3
