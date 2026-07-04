@@ -19,6 +19,11 @@ variable "ami" {
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
+
+  validation {
+    condition = contains(["t2.micro", "t2.small", "t2.medium", "t3.micro", "t3.small", "t3.medium"], var.instance_type)
+    error_message = "Invalid instance type. Allowed values are: t2.micro, t2.small, t2.medium, t3.micro, t3.small, t3.medium"
+  }
 }
 
 variable "key_name" {
@@ -111,6 +116,12 @@ variable "create_standalone_ec2" {
   description = "Whether to create a standalone EC2"
   type        = bool
   default     = false
+}
+
+variable "ec2_count" {
+  description = "Number of standalone EC2 instances to create"
+  type        = number
+  default     = 1
 }
 
 variable "ec2_name" {

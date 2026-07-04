@@ -69,9 +69,9 @@ module "asg" {
 ############################
 module "ec2" {
   source = "../../modules/ec2"
-  count  = var.create_standalone_ec2 ? 1 : 0
+  count  = var.create_standalone_ec2 ? var.ec2_count: 0
 
-  name            = var.ec2_name
+  name            = "${var.ec2_name}-${count.index + 1}"
   ami             = var.ami
   instance_type   = var.instance_type
   subnet_id       = module.vpc.public_subnet_ids[0]
